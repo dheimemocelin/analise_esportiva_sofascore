@@ -45,3 +45,22 @@ build_chart(metric, time1, time2)
 ## Contribuição
 
 Sinta-se à vontade para contribuir com melhorias para este script, abrindo uma issue ou enviando um pull request.
+
+## Datalake
+
+O repositório também inclui um exemplo simples de datalake dividido em
+camadas bronze, prata e ouro. O script `datalake_pipeline.py` permite ingerir
+arquivos CSV ou dados de API na camada bronze, realizar uma limpeza básica para
+a camada prata, agregar os dados na camada ouro e persistir o resultado em um
+banco SQLite.
+
+Para executar:
+
+```bash
+pip install pandas requests
+python datalake_pipeline.py
+```
+
+O diretório `datalake/` será preenchido com as subpastas `bronze`, `silver` e
+`gold`, e o arquivo `datalake/datalake.db` conterá a tabela `gold_data` com os
+dados agregados.
