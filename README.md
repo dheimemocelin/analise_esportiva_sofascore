@@ -12,6 +12,8 @@ Para executar o script, você precisa ter as seguintes bibliotecas instaladas:
     BeautifulSoup
     pandas
     plotly
+    fastapi
+    uvicorn
 
  ## Faça importação das bibliotecas necessárias:##
 
@@ -40,6 +42,23 @@ time2 = 'Palmeiras'
 metric = 'Gols'
 
 build_chart(metric, time1, time2)
+
+## API
+
+Uma API simples usando **FastAPI** está disponível no arquivo `api.py`. Para executá-la,
+instale as dependências e inicie o servidor com o `uvicorn`:
+
+```bash
+pip install -r requirements.txt  # ou instale fastapi e uvicorn manualmente
+uvicorn api:app --reload
+```
+
+O endpoint `/stats/{time}` retorna as estatísticas do time informado para a
+Série A. Exemplo de requisição:
+
+```
+GET http://127.0.0.1:8000/stats/Flamengo
+```
 
 
 ## Contribuição
